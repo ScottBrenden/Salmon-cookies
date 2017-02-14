@@ -138,16 +138,16 @@ for (var i = 0; i < stores.length; i++){
 }
 
 function newListEl(store, list){
-  var locUlEl = document.createElement('ul');
-  locUlEl.setAttribute('id', store + 'Ul');
+  var locUnorderedEl = document.createElement('ul');
+  locUnorderedEl.setAttribute('id', store + 'Ul');
   var divEl = document.getElementById(store);
-  divEl.appendChild(locUlEl);
+  divEl.appendChild(locUnorderedEl);
   for (var i = 0; i < list.length; i++){
-    var locLiEl = document.createElement('li');
-    locLiEl.setAttribute('class', store + 'Li');
-    locLiEl.textContent = list[i];
-    var UlEl = document.getElementById(store + 'Ul');
-    UlEl.appendChild(locLiEl);
+    var locListEl = document.createElement('li');
+    locListEl.setAttribute('class', store + 'Li');
+    locListEl.textContent = list[i];
+    var UnorderedEl = document.getElementById(store + 'Ul');
+    UnorderedEl.appendChild(locListEl);
   }
 };
 //display(pike);
