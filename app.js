@@ -1,10 +1,10 @@
 'use strict';
-// function newStoreEl(){
-//   for (var i = 0; i < storeStrings.length; i++){
-//     var storeEl = document.createElement('h1');
-//     storeEl.setAttribute('id', storeStrings[i]);
-//     storeEl.textContent()
-//   }
+// function newElement(elType, elAttribute, elAttributeName, elText, elParentId){
+  // var element = document.createElement(elType);
+  // element.setAttribute(elAttribute, elAttributeName);
+  // element.textContent(elText);
+  // var parentEl = getElementById(elParentId);
+  // parentEl.appendChild(element);
 // }
 
 function randomCust(min, max) {
