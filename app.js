@@ -6,11 +6,12 @@
   // var parentEl = getElementById(elParentId);
   // parentEl.appendChild(element);
 // }
+//var hourlyCookies = [];
 
 function randomCust(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min)) + min;
+  return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 var pike = {
@@ -152,3 +153,22 @@ function newListEl(store, list){
 };
 //display(pike);
 //display(alki);
+//----------------Demo area------------------------V
+
+// function CookieStore(name, minCust, maxCust, avg){
+//   this.name = name,
+//   this.minCust = minCust,
+//   this.maxCust = maxCust,
+//   this.avgCookies = avgCookies,
+//   this.cookPerHrArray = [];
+// }
+//
+// CookieStore.prototype.cookPerHr = function(){
+//   for (var i = 0; i < 15; i++){
+//     var cookies = Math.ceil(this.avgCookies * randomCust(this.minCust, this.maxCust));
+//     //console.log(cookies);
+//     this.cookPerHrArray.push(cookies);
+//   }
+// };
+//
+// var pike = new CookieStore('1st and Pike', 23, 65, 6.3);
