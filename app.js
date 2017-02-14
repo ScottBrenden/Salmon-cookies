@@ -8,6 +8,9 @@
 // }
 //var hourlyCookies = [];
 
+var stores = [pike, seaTac, seaCenter, capHill, alki];
+var storeStrings = ['pike', 'seaTac', 'seaCenter', 'capHill', 'alki'];
+
 function randomCust(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -118,8 +121,7 @@ function hrlist(store){
   return hrSalesList;
 };
 hrlist(pike);
-var stores = [pike, seaTac, seaCenter, capHill, alki];
-var storeStrings = ['pike', 'seaTac', 'seaCenter', 'capHill', 'alki'];
+
 for (var i = 0; i < stores.length; i++){
   var loc = stores[i];
   loc.CookPerHr();
@@ -172,3 +174,31 @@ function newListEl(store, list){
 // };
 //
 // var pike = new CookieStore('1st and Pike', 23, 65, 6.3);
+
+// var tableEl = document.createElement('table');
+//
+// for(var i = 0; i < stores.length; i++){
+//   var currentStore = stores[i];
+//
+//   var rowEl = document.createElement('tr');
+//
+//   var nameEl = document.createElement('th');
+//   nameEl.textContent = currentStore.name;
+//   rowEl.appendChild(nameEl);
+//
+//   var minCustEl = document.createElement('td');
+//   minCustEl.textContent = currentStore.nimCust;
+//   rowEl.appendChild(minCustEl);
+//
+//   var maxCustEl = document.createElement('td');
+//   maxCustEl.textContent = currentStore.maxCust;;
+//   rowEl.appendChild(maxCustEl);
+//
+//   var avgCookiesEL = document,createElement('td');
+//   avgCookiesEL.textContent = currentStore.avgCookies
+//   rowEl.appendChild(avgCookiesEL);
+//
+//   tableEl.appendChild(rowEl);
+// }
+
+//document.body.appendChild(tableEl);
