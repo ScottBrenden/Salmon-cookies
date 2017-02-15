@@ -1,0 +1,26 @@
+header {
+  font-family: lobster;
+  font-size: 60px;
+  background: #fff;
+  background: -webkit-linear-gradient(#fff, #d67228);
+  background: -o-linear-gradient(#fff, #d67228);
+  background: -moz-linear-gradient(#fff, #d67228);
+  background: linear-gradient(#fff, #d67228);
+  background-size: cover;
+  margin: -10px -10px 0px -10px;
+
+}
+header img {
+  display: block;
+  margin: auto;
+  padding-top: 40px;
+}
+
+header p {
+  text-align: center;
+  margin-top: -140px;
+}
+
+body {
+  background: #d67228;
+}
