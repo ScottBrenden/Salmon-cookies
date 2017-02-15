@@ -39,11 +39,9 @@ CookieStore.prototype.cookPerHr = function(){
 };
 
 CookieStore.prototype.totalCookies = function(){
-  var totalCookies = 0;
   for (var i = 0; i < 15; i++){
-    totalCookies += store.cookPerHrArray[i];
+    this.totalCookies += this.cookPerHrArray[i];
   }
-  return totalCookies;
 };
 // pike.cookPerHr();
 // console.log('test');
@@ -60,6 +58,7 @@ function CookieStore(name, minCust, maxCust, avgCookies){
   this.maxCust = maxCust,
   this.avgCookies = avgCookies,
   this.cookPerHrArray = [];
+  this.totalCookies = 0;
 }
 
 // console.log(pike.cookPerHrArray);
@@ -72,14 +71,15 @@ newElement('th', 'class', 'table-header', 'row-header', 'Store');
 for (var i = 0; i < timeArr.length; i++){
   newElement('th', 'class', 'table-header', 'row-header', timeArr[i]);
 }
-newElement('th', 'class', 'table-header', 'table-head', 'Daily Totals');
+newElement('th', 'class', 'table-header', 'row-header', 'Daily Totals');
 newElement('tbody', 'id', 'table-body', 'master-table', '');
 for (var i = 0; i < stores.length; i++){
   newElement('tr', 'id', ('row' + i), 'table-body', '');
   newElement('th', 'class', storeStrings[i], ('row' + i), stores[i].name);
   for (var j = 0; j < stores[i].cookPerHrArray.length; j++){
-    newElement('td', 'class', storeStrings[i], 'table-body');
+    newElement('td', 'class', storeStrings[i], ('row' + i), stores[i].cookPerHrArray[j]);
   }
+  newElement('td', 'class', storeStrings[i], ('row' + i), stores[i].totalCookies);
 }
 
 // hrlist(pike);
