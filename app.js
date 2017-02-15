@@ -67,43 +67,55 @@ console.log(pike);
 
 newElement('table', 'id', 'master-table', 'store-stats', '');
 newElement('thead', 'id', 'table-head', 'master-table', '');
+newElement('tr', 'id', 'row-header', 'table-head', '');
+newElement('th', 'class', 'table-header', 'row-header', 'Store');
 for (var i = 0; i < timeArr.length; i++){
-  
+  newElement('th', 'class', 'table-header', 'row-header', timeArr[i]);
+}
+newElement('th', 'class', 'table-header', 'table-head', 'Daily Totals');
+newElement('tbody', 'id', 'table-body', 'master-table', '');
+for (var i = 0; i < stores.length; i++){
+  newElement('tr', 'id', ('row' + i), 'table-body', '');
+  newElement('th', 'class', storeStrings[i], ('row' + i), stores[i].name);
+  for (var j = 0; j < stores[i].cookPerHrArray.length; j++){
+    newElement('td', 'class', storeStrings[i], 'table-body');
+  }
 }
 
-var tableEl = document.createElement('table');
-
-for(var i = 0; i < stores.length; i++){
-  var currentStore = stores[i];
-
-  var rowEl = document.createElement('tr');
-
-  var nameEl = document.createElement('th');
-  nameEl.textContent = currentStore.name;
-  rowEl.appendChild(nameEl);
-
-  var minCustEl = document.createElement('td');
-  minCustEl.textContent = currentStore.nimCust;
-  rowEl.appendChild(minCustEl);
-
-  var maxCustEl = document.createElement('td');
-  maxCustEl.textContent = currentStore.maxCust;;
-  rowEl.appendChild(maxCustEl);
-
-  var avgCookiesEL = document.createElement('td');
-  avgCookiesEL.textContent = currentStore.avgCookies;
-  rowEl.appendChild(avgCookiesEL);
-
-  tableEl.appendChild(rowEl);
-}
-
-document.body.appendChild(tableEl);
 // hrlist(pike);
 // console.log(stores[0]);
 
 //display(pike);
 //display(alki);
 //----------------Demo area------------------------V
+
+// var tableEl = document.createElement('table');
+//
+// for(var i = 0; i < stores.length; i++){
+//   var currentStore = stores[i];
+//
+//   var rowEl = document.createElement('tr');
+//
+//   var nameEl = document.createElement('th');
+//   nameEl.textContent = currentStore.name;
+//   rowEl.appendChild(nameEl);
+//
+//   var minCustEl = document.createElement('td');
+//   minCustEl.textContent = currentStore.nimCust;
+//   rowEl.appendChild(minCustEl);
+//
+//   var maxCustEl = document.createElement('td');
+//   maxCustEl.textContent = currentStore.maxCust;;
+//   rowEl.appendChild(maxCustEl);
+//
+//   var avgCookiesEL = document.createElement('td');
+//   avgCookiesEL.textContent = currentStore.avgCookies;
+//   rowEl.appendChild(avgCookiesEL);
+//
+//   tableEl.appendChild(rowEl);
+// }
+//
+// document.body.appendChild(tableEl);
 
 //---------------Old Code------------------V
 // for (var i = 0; i < stores.length; i++){
