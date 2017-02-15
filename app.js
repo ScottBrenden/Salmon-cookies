@@ -1,4 +1,5 @@
 'use strict';
+
 function newElement(elType, elAttribute, elAttributeName, elParentId, elText){
   var el = document.createElement(elType);
   el.setAttribute(elAttribute, elAttributeName);
@@ -70,24 +71,30 @@ console.log(pike.cookPerHrArray);
 console.log(pike);
 
 newElement('table', 'id', 'master-table', 'store-stats', '');
-newElement('thead', 'id', 'table-head', 'master-table', '');
-newElement('tr', 'id', 'row-header', 'table-head', '');
-newElement('th', 'class', 'table-header', 'row-header', 'Store');
-for (var i = 0; i < timeArr.length; i++){
-  newElement('th', 'class', 'table-header', 'row-header', timeArr[i]);
+function displayTableHead(){
+  newElement('thead', 'id', 'table-head', 'master-table', '');
+  newElement('tr', 'id', 'row-header', 'table-head', '');
+  newElement('th', 'class', 'table-header', 'row-header', 'Store');
 }
-newElement('th', 'class', 'table-header', 'row-header', 'Daily Totals');
-newElement('tbody', 'id', 'table-body', 'master-table', '');
-for (var i = 0; i < stores.length; i++){
-  newElement('tr', 'id', ('row' + i), 'table-body', '');
-  newElement('th', 'class', storeStrings[i], ('row' + i), stores[i].name);
-  for (var j = 0; j < stores[i].cookPerHrArray.length; j++){
-    newElement('td', 'class', storeStrings[i], ('row' + i), stores[i].cookPerHrArray[j]);
-    //console.log(i);
-    //console.log(j);
+function displayTable(){
+  for (var i = 0; i < timeArr.length; i++){
+    newElement('th', 'class', 'table-header', 'row-header', timeArr[i]);
   }
-  newElement('td', 'class', storeStrings[i], ('row' + i), stores[i].totalCook);
-  //console.log(stores[i].cookPerHrArray.length);
+  newElement('th', 'class', 'table-header', 'row-header', 'Daily Totals');
+  newElement('tbody', 'id', 'table-body', 'master-table', '');
+  for (var i = 0; i < stores.length; i++){
+    newElement('tr', 'id', ('row' + i), 'table-body', '');
+    newElement('th', 'class', storeStrings[i], ('row' + i), stores[i].name);
+    for (var j = 0; j < stores[i].cookPerHrArray.length; j++){
+      newElement('td', 'class', storeStrings[i], ('row' + i), stores[i].cookPerHrArray[j]);
+      //console.log(i);
+      //console.log(j);
+    }
+    newElement('td', 'class', storeStrings[i], ('row' + i), stores[i].totalCook);
+    //console.log(stores[i].cookPerHrArray.length);
+  }
 }
 
+displayTableHead();
+displayTable();
 //----------------Demo area------------------------V
