@@ -71,12 +71,12 @@ console.log(pike.cookPerHrArray);
 console.log(pike);
 
 newElement('table', 'id', 'master-table', 'store-stats', '');
-function displayTableHead(){
+function renderHead(){
   newElement('thead', 'id', 'table-head', 'master-table', '');
   newElement('tr', 'id', 'row-header', 'table-head', '');
   newElement('th', 'class', 'table-header', 'row-header', 'Store');
 }
-function displayTable(){
+function render(){
   for (var i = 0; i < timeArr.length; i++){
     newElement('th', 'class', 'table-header', 'row-header', timeArr[i]);
   }
@@ -95,6 +95,6 @@ function displayTable(){
   }
 }
 
-displayTableHead();
-displayTable();
+renderHead();
+render();
 //----------------Demo area------------------------V
