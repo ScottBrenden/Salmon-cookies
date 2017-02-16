@@ -14,11 +14,12 @@ function randomCust(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function CookieStore(name, minCust, maxCust, avgCookies){
+function CookieStore(name, minCust, maxCust, avgCookies, identity){
   this.name = name,
   this.minCust = minCust,
   this.maxCust = maxCust,
   this.avgCookies = avgCookies,
+  this.identity = identity,
   this.cookPerHrArray = [];
   this.totalCook = 0;
 }
@@ -38,11 +39,11 @@ for (var i = 6; i < 21; i++){
 
 var storeStrings = ['pike', 'seaTac', 'seaCenter', 'capHill', 'alki'];
 
-var pike = new CookieStore('1st and Pike', 23, 65, 6.3);
-var seaTac = new CookieStore('SeaTac Airport', 3, 24, 1.2);
-var seaCenter = new CookieStore('Seattle Center', 11, 38, 3.7);
-var capHill = new CookieStore('Capitol Hill', 20, 38, 2.3);
-var alki = new CookieStore('Alki', 2, 16, 4.6);
+var pike = new CookieStore('1st and Pike', 23, 65, 6.3, 'pike');
+var seaTac = new CookieStore('SeaTac Airport', 3, 24, 1.2, 'seaTac');
+var seaCenter = new CookieStore('Seattle Center', 11, 38, 3.7, 'seaCenter');
+var capHill = new CookieStore('Capitol Hill', 20, 38, 2.3, 'capHill');
+var alki = new CookieStore('Alki', 2, 16, 4.6, 'alki');
 
 var stores = [pike, seaTac, seaCenter, capHill, alki];
 
@@ -62,7 +63,6 @@ CookieStore.prototype.totalCookies = function(){
   return this.totalCookies;
 };
 
-// console.log('test');
 for (var i = 0; i < stores.length; i++){
   stores[i].cookPerHr();
   stores[i].totalCookies();
@@ -75,25 +75,22 @@ function displayTableHead(){
   newElement('thead', 'id', 'table-head', 'master-table', '');
   newElement('tr', 'id', 'row-header', 'table-head', '');
   newElement('th', 'class', 'table-header', 'row-header', 'Store');
-}
-function render(){
   for (var i = 0; i < timeArr.length; i++){
     newElement('th', 'class', 'table-header', 'row-header', timeArr[i]);
   }
   newElement('th', 'class', 'table-header', 'row-header', 'Daily Totals');
   newElement('tbody', 'id', 'table-body', 'master-table', '');
-  for (var i = 0; i < stores.length; i++){
-    newElement('tr', 'id', ('row' + i), 'table-body', '');
-    newElement('th', 'class', storeStrings[i], ('row' + i), stores[i].name);
-    for (var j = 0; j < stores[i].cookPerHrArray.length; j++){
-      newElement('td', 'class', storeStrings[i], ('row' + i), stores[i].cookPerHrArray[j]);
-      //console.log(i);
-      //console.log(j);
-    }
-    newElement('td', 'class', storeStrings[i], ('row' + i), stores[i].totalCook);
-    //console.log(stores[i].cookPerHrArray.length);
-  }
 }
+
+CookieStore.prototype.render = function(){
+  newElement('tr', 'id', ('row' + this.identity), 'table-body', '');
+  newElement('th', 'class', this.identity, ('row' + this.identity), this.name);
+  for (var i = 0; i < this.cookPerHrArray.length; i++){
+    newElement('td', 'class', this.identity, ('row' + this.identity), this.cookPerHrArray[i]);
+  }
+  newElement('td', 'class', this.identity, ('row' + this.identity), this.totalCook);
+  //console.log(stores[i].cookPerHrArray.length);
+};
 
 displayTableHead();
 
@@ -115,7 +112,10 @@ function newStoreSubmit(event){
 
   newStore.cookPerHr();
   newStore.totalCookies();
+  newStore.render();
+}
 
-  render();
+for (var i = 0; i < stores.length; i++){
+  stores[i].render();
 }
 //----------------Demo area------------------------V
