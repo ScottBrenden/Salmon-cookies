@@ -76,7 +76,7 @@ function displayTableHead(){
   newElement('tr', 'id', 'row-header', 'table-head', '');
   newElement('th', 'class', 'table-header', 'row-header', 'Store');
 }
-function displayTable(){
+function render(){
   for (var i = 0; i < timeArr.length; i++){
     newElement('th', 'class', 'table-header', 'row-header', timeArr[i]);
   }
