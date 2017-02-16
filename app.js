@@ -96,5 +96,26 @@ function displayTable(){
 }
 
 displayTableHead();
-displayTable();
+
+var newStoreForm = document.getElementById('new-store-form');
+newStoreForm.addEventListener('submit', newStoreSubmit);
+
+function newStoreSubmit(event){
+  event.preventDefault();
+  event.stopPropagation();
+
+  var name = event.target.cookieStoreName.value;
+  var minCust = parseInt(event.target.minCust.value);
+  var maxCust = parseInt(event.target.maxCust.value);
+  var avgCookies = parseFloat(event.target.avgCookies.value);
+
+  // Create a new object.
+  var newStore = new CookieStore(name, minCust, maxCust, avgCookies);
+  stores.push(newStore); // Pushes new store into stores array.
+
+  newStore.cookPerHr();
+  newStore.totalCookies();
+
+  render();
+}
 //----------------Demo area------------------------V
