@@ -3,19 +3,77 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <header>
-      <div id="fish logo">
+      <div id="fish-logo">
         <img src="https://github.com/codefellows/seattle-201d19/raw/master/class-06-dom-objects-domain_modeling/assets/salmon.png" alt="fish"/>
         <p>Slamon Cookies</p>
       </div>
+       <nav>
+        <ul>
+          <li class = "nav-li">Home</li>
+          <li class = "nav-li">About Us</li>
+          <li class = "nav-li">Locations</li>
+          <li class = "nav-li">Online Order</li>
+          <li class = "nav-li">Contact</li>
+          <li class = "nav-li">Jobs</li>
+        </ul>
+      </nav>
     </header>
-    
+    <section id = "side-left">
+      <div id = "loc">
+        <div id = "loc-img">
+          <!-- <img src="http://imgur.com/8yAHGq6" alt = ""/> -->
+          <h2>Locations</h2>
+        </div>
+        <article class="store-loc">
+          <h3>1st and Pike</h3>
+          <p>Address: 1st and Pike st Seattle Washington</p>
+          <p>Phone: (206) 532-1245</p>
+        </article>
+        <article class="store-loc">
+          <h3>Seattle Center</h3>
+          <p>Address: Somewhere near the space needle</p>
+          <p>Phone: (206) 155-1245</p>
+        </article>
+        <article class="store-loc">
+          <h3>SeaTac</h3>
+          <p>Address: Get through TSA and go to C gates</p>
+          <p>Phone: (206) 155-2356</p>
+        </article>
+        <article class="store-loc">
+          <h3>Capitol Hill</h3>
+          <p>Address: Wouldn't you like to know!</p>
+          <p>Phone: (206) 155-1545</p>
+        </article>
+        <article class="store-loc">
+          <h3>Alki</h3>
+          <p>Address: Literally the beach</p>
+          <p>Phone: (206) 155-1645</p>
+        </article>
+      </div>
+    </section>
+    <section id = "side-right">
+      <div id="menu">
+        <h2>Menu</h2>
+        <ul class="store-loc" >
+          <li>Drip: 1.00</li>
+          <li>De-Caf: 1.00</li>
+          <li>Add any other instructions: .50 each</li>
+          <li>Cookies: 5.00 for 4</li>
+        </ul>
+      </div>
+      <div id="hours">
+        <h2>Hours</h2>
+        <p class="store-loc">6am to 9pm</p>
+      </div>
+    </section>
     <footer>
     </footer>
-    <script src="app.js" type="text/javascript"></script>
+    <!-- <script src="app.js" type="text/javascript"></script> -->
   </body>
 </html>
