@@ -29,7 +29,7 @@ body {
 
 nav {
   /*position: fixed;*/
-  width: 100%;
+  width: 99.3%;
   background: #000;
   color: #fff;
   text-decoration: none;
@@ -85,8 +85,9 @@ h3 {
 }
 
 .store-loc {
+
   padding: 15px;
-  padding-top: -5px;
+  margin-top: -5px;
   margin-bottom: 10px;
   height: auto;
   background: #000;
@@ -94,10 +95,13 @@ h3 {
 }
 
 #loc-img {
+  background-image: url("https://c1.staticflickr.com/4/3863/31976451233_0d4c6ad586_k.jpg");
+  background-position: center, center;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
   border: solid #000;
   border-width: 3px 3px 0 3px;
+  padding-bottom: 15px;
 }
 
 #menu {
@@ -112,4 +116,12 @@ h3 {
   border-top-right-radius: 20px;
   border: solid #000;
   border-width: 3px 3px 0 3px;
+}
+
+.table-header {
+  background: #fff;
+}
+
+td {
+  color: #fff;
 }
